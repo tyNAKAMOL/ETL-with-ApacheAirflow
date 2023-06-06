@@ -1,0 +1,7 @@
+[2023-05-22T09:45:22.927+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.name scheduled__2023-02-27T00:00:00+00:00 [queued]>
+[2023-05-22T09:45:40.362+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.name scheduled__2023-02-27T00:00:00+00:00 [queued]>
+[2023-05-22T09:45:52.782+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-05-22T09:46:58.582+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): name> on 2023-02-27 00:00:00+00:00
+[2023-05-22T09:47:23.073+0000] {standard_task_runner.py:57} INFO - Started process 989 to run task
+[2023-05-22T09:47:48.557+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'name', 'scheduled__2023-02-27T00:00:00+00:00', '--job-id', '71', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp2y8ierj3']
+[2023-05-22T09:47:58.281+0000] {standard_task_runner.py:85} INFO - Job 71: Subtask name

@@ -1,0 +1,363 @@
+[2023-06-01T06:55:08.103+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T06:54:52.217715+00:00 [queued]>
+[2023-06-01T06:55:08.122+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T06:54:52.217715+00:00 [queued]>
+[2023-06-01T06:55:08.123+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-06-01T06:55:08.240+0000] {taskinstance.py:1327} INFO - Executing <Task(DockerOperator): extract> on 2023-06-01 06:54:52.217715+00:00
+[2023-06-01T06:55:08.252+0000] {standard_task_runner.py:57} INFO - Started process 196 to run task
+[2023-06-01T06:55:08.263+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'extract', 'manual__2023-06-01T06:54:52.217715+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmprgg4g8d9']
+[2023-06-01T06:55:08.266+0000] {standard_task_runner.py:85} INFO - Job 41: Subtask extract
+[2023-06-01T06:55:09.155+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.extract manual__2023-06-01T06:54:52.217715+00:00 [running]> on host 2458f8217e11
+[2023-06-01T06:55:09.889+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T06:54:52.217715+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-01T06:54:52.217715+00:00'
+[2023-06-01T06:55:09.945+0000] {docker.py:324} INFO - Starting docker container from image my_etl:test8
+[2023-06-01T06:55:34.840+0000] {docker.py:391} INFO - Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+[2023-06-01T06:55:34.841+0000] {docker.py:391} INFO - return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+[2023-06-01T06:55:34.842+0000] {docker.py:391} INFO - return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+[2023-06-01T06:55:34.844+0000] {docker.py:391} INFO - fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+[2023-06-01T06:55:34.845+0000] {docker.py:391} INFO - rec = pool._do_get()
+[2023-06-01T06:55:34.846+0000] {docker.py:391} INFO - File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+[2023-06-01T06:55:34.847+0000] {docker.py:391} INFO - self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+[2023-06-01T06:55:34.849+0000] {docker.py:391} INFO - compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+[2023-06-01T06:55:34.850+0000] {docker.py:391} INFO - raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+[2023-06-01T06:55:34.851+0000] {docker.py:391} INFO - return self._create_connection()
+[2023-06-01T06:55:34.852+0000] {docker.py:391} INFO - File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+[2023-06-01T06:55:34.853+0000] {docker.py:391} INFO - return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+[2023-06-01T06:55:34.854+0000] {docker.py:391} INFO - self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+[2023-06-01T06:55:34.855+0000] {docker.py:391} INFO - pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+[2023-06-01T06:55:34.856+0000] {docker.py:391} INFO - compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+[2023-06-01T06:55:34.857+0000] {docker.py:391} INFO - raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+[2023-06-01T06:55:34.858+0000] {docker.py:391} INFO - self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+[2023-06-01T06:55:34.860+0000] {docker.py:391} INFO - return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+[2023-06-01T06:55:34.861+0000] {docker.py:391} INFO - return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+[2023-06-01T06:55:34.862+0000] {docker.py:391} INFO - conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/extract.py", line 18, in <module>
+[2023-06-01T06:55:34.864+0000] {docker.py:391} INFO - merged_df.to_sql('source_data', con = engine, if_exists='replace',index_label='id')
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/generic.py", line 2951, in to_sql
+[2023-06-01T06:55:34.865+0000] {docker.py:391} INFO - return sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 698, in to_sql
+[2023-06-01T06:55:34.866+0000] {docker.py:391} INFO - return pandas_sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1732, in to_sql
+[2023-06-01T06:55:34.867+0000] {docker.py:391} INFO - table = self.prep_table(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1631, in prep_table
+[2023-06-01T06:55:34.869+0000] {docker.py:391} INFO - table.create()
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 832, in create
+[2023-06-01T06:55:34.871+0000] {docker.py:391} INFO - if self.exists():
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 816, in exists
+[2023-06-01T06:55:34.872+0000] {docker.py:391} INFO - return self.pd_sql.has_table(self.name, self.schema)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1765, in has_table
+[2023-06-01T06:55:34.875+0000] {docker.py:391} INFO - insp = inspect(self.connectable)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/inspection.py", line 64, in inspect
+[2023-06-01T06:55:34.876+0000] {docker.py:391} INFO - ret = reg(subject)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 182, in _engine_insp
+[2023-06-01T06:55:34.877+0000] {docker.py:391} INFO - return Inspector._construct(Inspector._init_engine, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 117, in _construct
+[2023-06-01T06:55:34.878+0000] {docker.py:391} INFO - init(self, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 128, in _init_engine
+[2023-06-01T06:55:34.879+0000] {docker.py:391} INFO - engine.connect().close()
+[2023-06-01T06:55:34.880+0000] {docker.py:391} INFO - File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3320, in connect
+[2023-06-01T06:55:34.881+0000] {docker.py:391} INFO - return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3399, in raw_connection
+[2023-06-01T06:55:34.882+0000] {docker.py:391} INFO - return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3369, in _wrap_pool_connect
+[2023-06-01T06:55:34.883+0000] {docker.py:391} INFO - Connection._handle_dbapi_exception_noconnection(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2203, in _handle_dbapi_exception_noconnection
+[2023-06-01T06:55:34.884+0000] {docker.py:391} INFO - util.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+[2023-06-01T06:55:34.885+0000] {docker.py:391} INFO - raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+[2023-06-01T06:55:34.886+0000] {docker.py:391} INFO - return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+[2023-06-01T06:55:34.886+0000] {docker.py:391} INFO - return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+[2023-06-01T06:55:34.887+0000] {docker.py:391} INFO - fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+[2023-06-01T06:55:34.888+0000] {docker.py:391} INFO - rec = pool._do_get()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+[2023-06-01T06:55:34.889+0000] {docker.py:391} INFO - self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+[2023-06-01T06:55:34.889+0000] {docker.py:391} INFO - compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+[2023-06-01T06:55:34.890+0000] {docker.py:391} INFO - raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+[2023-06-01T06:55:34.891+0000] {docker.py:391} INFO - return self._create_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+[2023-06-01T06:55:34.891+0000] {docker.py:391} INFO - return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+[2023-06-01T06:55:34.892+0000] {docker.py:391} INFO - self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+[2023-06-01T06:55:34.893+0000] {docker.py:391} INFO - pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+[2023-06-01T06:55:34.894+0000] {docker.py:391} INFO - compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+[2023-06-01T06:55:34.895+0000] {docker.py:391} INFO - raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+[2023-06-01T06:55:34.895+0000] {docker.py:391} INFO - self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+[2023-06-01T06:55:34.896+0000] {docker.py:391} INFO - return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+[2023-06-01T06:55:34.897+0000] {docker.py:391} INFO - return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+[2023-06-01T06:55:34.898+0000] {docker.py:391} INFO - conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+[2023-06-01T06:55:34.899+0000] {docker.py:391} INFO - sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-06-01T06:55:35.384+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 466, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 341, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 400, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+rec = pool._do_get()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+return self._create_connection()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/extract.py", line 18, in <module>
+merged_df.to_sql('source_data', con = engine, if_exists='replace',index_label='id')
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/generic.py", line 2951, in to_sql
+return sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 698, in to_sql
+return pandas_sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1732, in to_sql
+table = self.prep_table(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1631, in prep_table
+table.create()
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 832, in create
+if self.exists():
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 816, in exists
+return self.pd_sql.has_table(self.name, self.schema)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1765, in has_table
+insp = inspect(self.connectable)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/inspection.py", line 64, in inspect
+ret = reg(subject)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 182, in _engine_insp
+return Inspector._construct(Inspector._init_engine, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 117, in _construct
+init(self, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 128, in _init_engine
+engine.connect().close()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3320, in connect
+return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3399, in raw_connection
+return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3369, in _wrap_pool_connect
+Connection._handle_dbapi_exception_noconnection(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2203, in _handle_dbapi_exception_noconnection
+util.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+rec = pool._do_get()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+return self._create_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2023-06-01T06:55:35.391+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=extract, execution_date=20230601T065452, start_date=20230601T065508, end_date=20230601T065535
+[2023-06-01T06:55:35.415+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 41 for task extract (Docker container failed: {'StatusCode': 1} lines Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+rec = pool._do_get()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+return self._create_connection()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/extract.py", line 18, in <module>
+merged_df.to_sql('source_data', con = engine, if_exists='replace',index_label='id')
+  File "/usr/local/lib/python3.9/site-packages/pandas/core/generic.py", line 2951, in to_sql
+return sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 698, in to_sql
+return pandas_sql.to_sql(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1732, in to_sql
+table = self.prep_table(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1631, in prep_table
+table.create()
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 832, in create
+if self.exists():
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 816, in exists
+return self.pd_sql.has_table(self.name, self.schema)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/sql.py", line 1765, in has_table
+insp = inspect(self.connectable)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/inspection.py", line 64, in inspect
+ret = reg(subject)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 182, in _engine_insp
+return Inspector._construct(Inspector._init_engine, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 117, in _construct
+init(self, bind)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/reflection.py", line 128, in _init_engine
+engine.connect().close()
+File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3320, in connect
+return self._connection_cls(self, close_with_result=close_with_result)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3399, in raw_connection
+return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3369, in _wrap_pool_connect
+Connection._handle_dbapi_exception_noconnection(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2203, in _handle_dbapi_exception_noconnection
+util.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 3366, in _wrap_pool_connect
+return fn()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+return _ConnectionFairy._checkout(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+fairy = _ConnectionRecord.checkout(pool)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+rec = pool._do_get()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+self._dec_overflow()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+return self._create_connection()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+return _ConnectionRecord(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+self.__connect()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+pool.logger.debug("Error on connect(): %s", e)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+compat.raise_(
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+raise exception
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+return dialect.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+return self.dbapi.connect(*cargs, **cparams)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgresLocal-1" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 196)
+[2023-06-01T06:55:35.449+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-01T06:55:35.475+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,59 @@
+[2023-05-23T07:42:03.493+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.Transform manual__2023-05-23T07:41:50.152219+00:00 [queued]>
+[2023-05-23T07:42:03.511+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.Transform manual__2023-05-23T07:41:50.152219+00:00 [queued]>
+[2023-05-23T07:42:03.512+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-23T07:42:03.539+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): Transform> on 2023-05-23 07:41:50.152219+00:00
+[2023-05-23T07:42:03.547+0000] {standard_task_runner.py:57} INFO - Started process 79 to run task
+[2023-05-23T07:42:03.551+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'Transform', 'manual__2023-05-23T07:41:50.152219+00:00', '--job-id', '335', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp1g_s7kqj']
+[2023-05-23T07:42:03.552+0000] {standard_task_runner.py:85} INFO - Job 335: Subtask Transform
+[2023-05-23T07:42:03.637+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.Transform manual__2023-05-23T07:41:50.152219+00:00 [running]> on host 41afa13826a4
+[2023-05-23T07:42:03.792+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='Transform' AIRFLOW_CTX_EXECUTION_DATE='2023-05-23T07:41:50.152219+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-23T07:41:50.152219+00:00'
+[2023-05-23T07:42:04.700+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/operators/python.py:198: DtypeWarning: Columns (2) have mixed types.Specify dtype option on import or set low_memory=False.
+  return self.python_callable(*self.op_args, **self.op_kwargs)
+
+[2023-05-23T07:42:10.652+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:44: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop["Age"] = df_drop['Age'].astype(int)
+
+[2023-05-23T07:42:11.299+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:47: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop['Sex'] = df_drop['Sex'].str.upper()
+
+[2023-05-23T07:42:12.417+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:48: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop['Sex'] = df_drop['Sex'].str.replace("(MAN|MALE)",'M',regex=True)
+
+[2023-05-23T07:42:13.627+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:49: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop['Sex'] = df_drop['Sex'].str.replace("(GIRL|FEM)",'F',regex=True)
+
+[2023-05-23T07:42:14.537+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:50: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop['Sex'] = df_drop['Sex'].str.replace("(BOTH|FM|MF)",'LGBT',regex=True)
+
+[2023-05-23T07:42:15.114+0000] {warnings.py:110} WARNING - /opt/***/dags/my_dag.py:51: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_drop['Sex'] = df_drop['Sex'].str.replace("-",'Not Defined',regex=True)
+
+[2023-05-23T07:42:16.675+0000] {logging_mixin.py:149} INFO - {'age_morethan120': 84436, 'sex_LGBT': 299505, 'sex_NotDefined': 0}
+[2023-05-23T07:42:21.179+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-23T07:42:21.299+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=Transform, execution_date=20230523T074150, start_date=20230523T074203, end_date=20230523T074221
+[2023-05-23T07:42:21.380+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-23T07:42:21.439+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

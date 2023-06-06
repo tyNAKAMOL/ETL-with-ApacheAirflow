@@ -1,0 +1,55 @@
+[2023-05-25T01:35:35.540+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.Transform scheduled__2023-05-24T00:00:00+00:00 [queued]>
+[2023-05-25T01:35:35.777+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.Transform scheduled__2023-05-24T00:00:00+00:00 [queued]>
+[2023-05-25T01:35:35.778+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-25T01:35:35.807+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): Transform> on 2023-05-24 00:00:00+00:00
+[2023-05-25T01:35:35.816+0000] {standard_task_runner.py:57} INFO - Started process 80 to run task
+[2023-05-25T01:35:35.821+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'Transform', 'scheduled__2023-05-24T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp8mntp0jv']
+[2023-05-25T01:35:35.824+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask Transform
+[2023-05-25T01:35:35.895+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.Transform scheduled__2023-05-24T00:00:00+00:00 [running]> on host cb140b3d8c36
+[2023-05-25T01:35:36.051+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='Transform' AIRFLOW_CTX_EXECUTION_DATE='2023-05-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-24T00:00:00+00:00'
+[2023-05-25T01:35:36.054+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-25T01:35:36.056+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/dags/transform.py']
+[2023-05-25T01:35:36.072+0000] {subprocess.py:86} INFO - Output:
+[2023-05-25T01:35:52.073+0000] {subprocess.py:93} INFO - sys:1: DtypeWarning: Columns (2) have mixed types.Specify dtype option on import or set low_memory=False.
+[2023-05-25T01:35:52.074+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:21: SettingWithCopyWarning:
+[2023-05-25T01:35:52.076+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.077+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.078+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.079+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.080+0000] {subprocess.py:93} INFO -   df_drop["Age"] = df_drop['Age'].astype(int)
+[2023-05-25T01:35:52.081+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:24: SettingWithCopyWarning:
+[2023-05-25T01:35:52.083+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.084+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.086+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.087+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.088+0000] {subprocess.py:93} INFO -   df_drop['Sex'] = df_drop['Sex'].str.upper()
+[2023-05-25T01:35:52.089+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:25: SettingWithCopyWarning:
+[2023-05-25T01:35:52.091+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.092+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.092+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.093+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.094+0000] {subprocess.py:93} INFO -   df_drop['Sex'] = df_drop['Sex'].str.replace("(MAN|MALE)",'M',regex=True)
+[2023-05-25T01:35:52.094+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:26: SettingWithCopyWarning:
+[2023-05-25T01:35:52.095+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.096+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.097+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.098+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.099+0000] {subprocess.py:93} INFO -   df_drop['Sex'] = df_drop['Sex'].str.replace("(GIRL|FEM)",'F',regex=True)
+[2023-05-25T01:35:52.100+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:27: SettingWithCopyWarning:
+[2023-05-25T01:35:52.101+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.102+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.103+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.103+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.104+0000] {subprocess.py:93} INFO -   df_drop['Sex'] = df_drop['Sex'].str.replace("(BOTH|FM|MF)",'LGBT',regex=True)
+[2023-05-25T01:35:52.106+0000] {subprocess.py:93} INFO - /opt/***/dags/transform.py:28: SettingWithCopyWarning:
+[2023-05-25T01:35:52.107+0000] {subprocess.py:93} INFO - A value is trying to be set on a copy of a slice from a DataFrame.
+[2023-05-25T01:35:52.108+0000] {subprocess.py:93} INFO - Try using .loc[row_indexer,col_indexer] = value instead
+[2023-05-25T01:35:52.109+0000] {subprocess.py:93} INFO - 
+[2023-05-25T01:35:52.110+0000] {subprocess.py:93} INFO - See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2023-05-25T01:35:52.111+0000] {subprocess.py:93} INFO -   df_drop['Sex'] = df_drop['Sex'].str.replace("-",'Not Defined',regex=True)
+[2023-05-25T01:35:52.113+0000] {subprocess.py:93} INFO - {'age_morethan120': 84436, 'sex_LGBT': 299505, 'sex_NotDefined': 0}
+[2023-05-25T01:35:52.363+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-25T01:35:52.412+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=Transform, execution_date=20230524T000000, start_date=20230525T013535, end_date=20230525T013552
+[2023-05-25T01:35:52.460+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-25T01:35:52.494+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

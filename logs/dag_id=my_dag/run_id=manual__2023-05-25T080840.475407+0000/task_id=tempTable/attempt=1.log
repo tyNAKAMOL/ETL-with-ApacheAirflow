@@ -1,0 +1,42 @@
+[2023-05-25T08:08:46.261+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.tempTable manual__2023-05-25T08:08:40.475407+00:00 [queued]>
+[2023-05-25T08:08:46.283+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.tempTable manual__2023-05-25T08:08:40.475407+00:00 [queued]>
+[2023-05-25T08:08:46.283+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-25T08:08:46.311+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): tempTable> on 2023-05-25 08:08:40.475407+00:00
+[2023-05-25T08:08:46.319+0000] {standard_task_runner.py:57} INFO - Started process 88 to run task
+[2023-05-25T08:08:46.323+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'tempTable', 'manual__2023-05-25T08:08:40.475407+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpidj92hsr']
+[2023-05-25T08:08:46.326+0000] {standard_task_runner.py:85} INFO - Job 48: Subtask tempTable
+[2023-05-25T08:08:46.404+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.tempTable manual__2023-05-25T08:08:40.475407+00:00 [running]> on host 6c149b085cf0
+[2023-05-25T08:08:46.665+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='tempTable' AIRFLOW_CTX_EXECUTION_DATE='2023-05-25T08:08:40.475407+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-25T08:08:40.475407+00:00'
+[2023-05-25T08:08:46.667+0000] {sql.py:262} INFO - Executing: 
+            CREATE TEMPORARY TABLE temp_table (
+             FirstName varchar(40),       
+             LastName  varchar(40),
+            )
+        
+[2023-05-25T08:08:46.683+0000] {base.py:73} INFO - Using connection ID 'connectPostges' for task execution.
+[2023-05-25T08:08:46.822+0000] {base.py:73} INFO - Using connection ID 'connectPostges' for task execution.
+[2023-05-25T08:08:46.832+0000] {sql.py:375} INFO - Running statement: 
+            CREATE TEMPORARY TABLE temp_table (
+             FirstName varchar(40),       
+             LastName  varchar(40),
+            )
+        , parameters: None
+[2023-05-25T08:08:46.836+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 274, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 349, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.SyntaxError: syntax error at or near ")"
+LINE 5:             )
+                    ^
+
+[2023-05-25T08:08:46.850+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=tempTable, execution_date=20230525T080840, start_date=20230525T080846, end_date=20230525T080846
+[2023-05-25T08:08:46.873+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 48 for task tempTable (syntax error at or near ")"
+LINE 5:             )
+                    ^
+; 88)
+[2023-05-25T08:08:46.896+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-05-25T08:08:46.948+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

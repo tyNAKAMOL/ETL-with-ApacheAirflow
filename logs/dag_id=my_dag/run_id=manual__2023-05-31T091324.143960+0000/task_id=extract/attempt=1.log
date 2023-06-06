@@ -1,0 +1,42 @@
+[2023-05-31T09:13:26.780+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-05-31T09:13:24.143960+00:00 [queued]>
+[2023-05-31T09:13:26.795+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-05-31T09:13:24.143960+00:00 [queued]>
+[2023-05-31T09:13:26.796+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-31T09:13:26.821+0000] {taskinstance.py:1327} INFO - Executing <Task(DockerOperator): extract> on 2023-05-31 09:13:24.143960+00:00
+[2023-05-31T09:13:26.830+0000] {standard_task_runner.py:57} INFO - Started process 1277 to run task
+[2023-05-31T09:13:26.835+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'extract', 'manual__2023-05-31T09:13:24.143960+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpv_aclmme']
+[2023-05-31T09:13:26.837+0000] {standard_task_runner.py:85} INFO - Job 54: Subtask extract
+[2023-05-31T09:13:26.922+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.extract manual__2023-05-31T09:13:24.143960+00:00 [running]> on host e578fc747af9
+[2023-05-31T09:13:27.054+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-05-31T09:13:24.143960+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-31T09:13:24.143960+00:00'
+[2023-05-31T09:13:27.113+0000] {docker.py:324} INFO - Starting docker container from image my_etl:test3
+[2023-05-31T09:13:27.168+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http://docker-proxy:2375/v1.42/containers/create?name=etl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 466, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 341, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 381, in _run_image_with_mounts
+    hostname=self.hostname,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 431, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 448, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 274, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 409 Client Error for http://docker-proxy:2375/v1.42/containers/create?name=etl: Conflict ("Conflict. The container name "/etl" is already in use by container "ef8cc6e8d432f5c943e8281bf576e33d062843bcff525e3f26726d8b709d9e15". You have to remove (or rename) that container to be able to reuse that name.")
+[2023-05-31T09:13:27.180+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=extract, execution_date=20230531T091324, start_date=20230531T091326, end_date=20230531T091327
+[2023-05-31T09:13:27.214+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 54 for task extract (409 Client Error for http://docker-proxy:2375/v1.42/containers/create?name=etl: Conflict ("Conflict. The container name "/etl" is already in use by container "ef8cc6e8d432f5c943e8281bf576e33d062843bcff525e3f26726d8b709d9e15". You have to remove (or rename) that container to be able to reuse that name."); 1277)
+[2023-05-31T09:13:27.251+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-05-31T09:13:27.342+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

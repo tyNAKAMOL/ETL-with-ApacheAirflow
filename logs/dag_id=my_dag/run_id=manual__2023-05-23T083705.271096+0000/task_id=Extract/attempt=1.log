@@ -1,0 +1,27 @@
+[2023-05-23T08:37:09.782+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.Extract manual__2023-05-23T08:37:05.271096+00:00 [queued]>
+[2023-05-23T08:37:09.849+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.Extract manual__2023-05-23T08:37:05.271096+00:00 [queued]>
+[2023-05-23T08:37:09.850+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-23T08:37:09.919+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): Extract> on 2023-05-23 08:37:05.271096+00:00
+[2023-05-23T08:37:09.937+0000] {standard_task_runner.py:57} INFO - Started process 1027 to run task
+[2023-05-23T08:37:09.948+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'Extract', 'manual__2023-05-23T08:37:05.271096+00:00', '--job-id', '343', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpv3h51x7h']
+[2023-05-23T08:37:09.952+0000] {standard_task_runner.py:85} INFO - Job 343: Subtask Extract
+[2023-05-23T08:37:10.113+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.Extract manual__2023-05-23T08:37:05.271096+00:00 [running]> on host 41afa13826a4
+[2023-05-23T08:37:10.347+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='Extract' AIRFLOW_CTX_EXECUTION_DATE='2023-05-23T08:37:05.271096+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-23T08:37:05.271096+00:00'
+[2023-05-23T08:37:10.353+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-23T08:37:10.355+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', <function extract at 0x7f8a22d0dd40>]
+[2023-05-23T08:37:10.358+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 205, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 83, in run_command
+    preexec_fn=pre_exec,
+  File "/usr/local/lib/python3.7/subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "/usr/local/lib/python3.7/subprocess.py", line 1482, in _execute_child
+    restore_signals, start_new_session, preexec_fn)
+TypeError: expected str, bytes or os.PathLike object, not function
+[2023-05-23T08:37:10.379+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=Extract, execution_date=20230523T083705, start_date=20230523T083709, end_date=20230523T083710
+[2023-05-23T08:37:10.415+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 343 for task Extract (expected str, bytes or os.PathLike object, not function; 1027)
+[2023-05-23T08:37:10.439+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-05-23T08:37:10.519+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

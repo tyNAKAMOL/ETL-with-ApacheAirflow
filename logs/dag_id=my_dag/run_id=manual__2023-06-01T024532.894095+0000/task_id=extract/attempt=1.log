@@ -1,0 +1,42 @@
+[2023-06-01T02:45:37.521+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T02:45:32.894095+00:00 [queued]>
+[2023-06-01T02:45:37.535+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T02:45:32.894095+00:00 [queued]>
+[2023-06-01T02:45:37.536+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-06-01T02:45:37.558+0000] {taskinstance.py:1327} INFO - Executing <Task(DockerOperator): extract> on 2023-06-01 02:45:32.894095+00:00
+[2023-06-01T02:45:37.565+0000] {standard_task_runner.py:57} INFO - Started process 93 to run task
+[2023-06-01T02:45:37.568+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'extract', 'manual__2023-06-01T02:45:32.894095+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp54a15fuq']
+[2023-06-01T02:45:37.570+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask extract
+[2023-06-01T02:45:37.627+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.extract manual__2023-06-01T02:45:32.894095+00:00 [running]> on host 8f414f8f4bb5
+[2023-06-01T02:45:37.738+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T02:45:32.894095+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-01T02:45:32.894095+00:00'
+[2023-06-01T02:45:37.873+0000] {docker.py:324} INFO - Starting docker container from image my_etl:test6
+[2023-06-01T02:45:37.992+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://docker-proxy:2375/v1.42/containers/create?name=etl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 466, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 341, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 381, in _run_image_with_mounts
+    hostname=self.hostname,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 431, in create_container
+    return self.create_container_from_config(config, name, platform)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 448, in create_container_from_config
+    return self._result(res, True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 274, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 400 Client Error for http://docker-proxy:2375/v1.42/containers/create?name=etl: Bad Request ("invalid mount config for type "bind": invalid mount path: 'C:/Users/beaut/Documents/Airflow/local_dag' mount path must be absolute")
+[2023-06-01T02:45:38.005+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=extract, execution_date=20230601T024532, start_date=20230601T024537, end_date=20230601T024538
+[2023-06-01T02:45:38.026+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 15 for task extract (400 Client Error for http://docker-proxy:2375/v1.42/containers/create?name=etl: Bad Request ("invalid mount config for type "bind": invalid mount path: 'C:/Users/beaut/Documents/Airflow/local_dag' mount path must be absolute"); 93)
+[2023-06-01T02:45:38.061+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-01T02:45:38.083+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,32 @@
+[2023-05-25T09:03:46.751+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.detail manual__2023-05-25T09:01:36.539856+00:00 [queued]>
+[2023-05-25T09:03:46.768+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.detail manual__2023-05-25T09:01:36.539856+00:00 [queued]>
+[2023-05-25T09:03:46.769+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-25T09:03:46.798+0000] {taskinstance.py:1327} INFO - Executing <Task(PostgresOperator): detail> on 2023-05-25 09:01:36.539856+00:00
+[2023-05-25T09:03:46.806+0000] {standard_task_runner.py:57} INFO - Started process 58 to run task
+[2023-05-25T09:03:46.810+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'detail', 'manual__2023-05-25T09:01:36.539856+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpgs5r642h']
+[2023-05-25T09:03:46.812+0000] {standard_task_runner.py:85} INFO - Job 69: Subtask detail
+[2023-05-25T09:03:46.884+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.detail manual__2023-05-25T09:01:36.539856+00:00 [running]> on host 548872e0b964
+[2023-05-25T09:03:47.083+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='detail' AIRFLOW_CTX_EXECUTION_DATE='2023-05-25T09:01:36.539856+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-25T09:01:36.539856+00:00'
+[2023-05-25T09:03:47.086+0000] {sql.py:262} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS detail2 (
+            userid SERIAL PRIMARY KEY,
+            firstname varchar(40),       
+            lastname  varchar(40),
+            age   integer,
+            sex   varchar(15)
+            )
+          
+[2023-05-25T09:03:47.104+0000] {base.py:73} INFO - Using connection ID 'connectPostges' for task execution.
+[2023-05-25T09:03:47.254+0000] {base.py:73} INFO - Using connection ID 'connectPostges' for task execution.
+[2023-05-25T09:03:47.300+0000] {sql.py:375} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS detail2 (
+            userid SERIAL PRIMARY KEY,
+            firstname varchar(40),       
+            lastname  varchar(40),
+            age   integer,
+            sex   varchar(15)
+            )
+          , parameters: None
+[2023-05-25T09:03:47.435+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=detail, execution_date=20230525T090136, start_date=20230525T090346, end_date=20230525T090347
+[2023-05-25T09:03:47.504+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-25T09:03:47.556+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

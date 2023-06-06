@@ -1,0 +1,5 @@
+[2023-05-22T09:45:25.225+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.name scheduled__2023-02-28T00:00:00+00:00 [queued]>
+[2023-05-22T09:45:38.637+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.name scheduled__2023-02-28T00:00:00+00:00 [queued]>
+[2023-05-22T09:45:39.865+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-05-22T09:47:22.476+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): name> on 2023-02-28 00:00:00+00:00
+[2023-05-22T09:47:22.982+0000] {standard_task_runner.py:57} INFO - Started process 990 to run task

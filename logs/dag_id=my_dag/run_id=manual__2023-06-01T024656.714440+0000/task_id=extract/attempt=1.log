@@ -1,0 +1,24 @@
+[2023-06-01T02:47:00.764+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T02:46:56.714440+00:00 [queued]>
+[2023-06-01T02:47:00.796+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T02:46:56.714440+00:00 [queued]>
+[2023-06-01T02:47:00.797+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-06-01T02:47:00.842+0000] {taskinstance.py:1327} INFO - Executing <Task(DockerOperator): extract> on 2023-06-01 02:46:56.714440+00:00
+[2023-06-01T02:47:00.877+0000] {standard_task_runner.py:57} INFO - Started process 124 to run task
+[2023-06-01T02:47:00.883+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'extract', 'manual__2023-06-01T02:46:56.714440+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmpk2ha99or']
+[2023-06-01T02:47:00.886+0000] {standard_task_runner.py:85} INFO - Job 16: Subtask extract
+[2023-06-01T02:47:01.011+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.extract manual__2023-06-01T02:46:56.714440+00:00 [running]> on host 8f414f8f4bb5
+[2023-06-01T02:47:01.245+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T02:46:56.714440+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-01T02:46:56.714440+00:00'
+[2023-06-01T02:47:01.359+0000] {docker.py:324} INFO - Starting docker container from image my_etl:test6
+[2023-06-01T02:47:02.135+0000] {docker.py:391} INFO - python: can't open file '/app/extract.py': [Errno 2] No such file or directory
+[2023-06-01T02:47:02.765+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 466, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 341, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 400, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 2} lines python: can't open file '/app/extract.py': [Errno 2] No such file or directory
+[2023-06-01T02:47:02.773+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=extract, execution_date=20230601T024656, start_date=20230601T024700, end_date=20230601T024702
+[2023-06-01T02:47:02.803+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 16 for task extract (Docker container failed: {'StatusCode': 2} lines python: can't open file '/app/extract.py': [Errno 2] No such file or directory; 124)
+[2023-06-01T02:47:02.827+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-01T02:47:02.864+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

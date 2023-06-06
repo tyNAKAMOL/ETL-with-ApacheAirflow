@@ -1,0 +1,14 @@
+[2023-05-22T13:20:31.886+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.print scheduled__2023-03-20T00:00:00+00:00 [queued]>
+[2023-05-22T13:20:31.925+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.print scheduled__2023-03-20T00:00:00+00:00 [queued]>
+[2023-05-22T13:20:31.926+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2023-05-22T13:20:31.984+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): print> on 2023-03-20 00:00:00+00:00
+[2023-05-22T13:20:31.999+0000] {standard_task_runner.py:57} INFO - Started process 164 to run task
+[2023-05-22T13:20:32.012+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'print', 'scheduled__2023-03-20T00:00:00+00:00', '--job-id', '136', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmprqf_29v5']
+[2023-05-22T13:20:32.019+0000] {standard_task_runner.py:85} INFO - Job 136: Subtask print
+[2023-05-22T13:20:32.167+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.print scheduled__2023-03-20T00:00:00+00:00 [running]> on host a762073ce236
+[2023-05-22T13:20:32.450+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='print' AIRFLOW_CTX_EXECUTION_DATE='2023-03-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-20T00:00:00+00:00'
+[2023-05-22T13:20:32.455+0000] {logging_mixin.py:149} INFO - Hello World
+[2023-05-22T13:20:32.457+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-05-22T13:20:32.484+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=print, execution_date=20230320T000000, start_date=20230522T132031, end_date=20230522T132032
+[2023-05-22T13:20:32.545+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-22T13:20:32.619+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

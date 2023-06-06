@@ -1,0 +1,34 @@
+[2023-06-01T08:19:14.007+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T08:19:09.739939+00:00 [queued]>
+[2023-06-01T08:19:14.020+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.extract manual__2023-06-01T08:19:09.739939+00:00 [queued]>
+[2023-06-01T08:19:14.021+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-06-01T08:19:14.042+0000] {taskinstance.py:1327} INFO - Executing <Task(DockerOperator): extract> on 2023-06-01 08:19:09.739939+00:00
+[2023-06-01T08:19:14.049+0000] {standard_task_runner.py:57} INFO - Started process 706 to run task
+[2023-06-01T08:19:14.052+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'extract', 'manual__2023-06-01T08:19:09.739939+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/my_dag.py', '--cfg-path', '/tmp/tmp5tp8uxk9']
+[2023-06-01T08:19:14.055+0000] {standard_task_runner.py:85} INFO - Job 24: Subtask extract
+[2023-06-01T08:19:14.110+0000] {task_command.py:410} INFO - Running <TaskInstance: my_dag.extract manual__2023-06-01T08:19:09.739939+00:00 [running]> on host 6bccebd655ed
+[2023-06-01T08:19:14.230+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-06-01T08:19:09.739939+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-06-01T08:19:09.739939+00:00'
+[2023-06-01T08:19:14.320+0000] {docker.py:450} INFO - Pulling docker image my_etl:test16
+[2023-06-01T08:19:17.675+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 268, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://docker-proxy:2375/v1.42/images/create?tag=test16&fromImage=my_etl
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 452, in execute
+    for output in self.cli.pull(self.image, stream=True, decode=True):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/image.py", line 429, in pull
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 270, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.ImageNotFound: 404 Client Error for http://docker-proxy:2375/v1.42/images/create?tag=test16&fromImage=my_etl: Not Found ("pull access denied for my_etl, repository does not exist or may require 'docker login': denied: requested access to the resource is denied")
+[2023-06-01T08:19:17.687+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=my_dag, task_id=extract, execution_date=20230601T081909, start_date=20230601T081914, end_date=20230601T081917
+[2023-06-01T08:19:17.703+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 24 for task extract (404 Client Error for http://docker-proxy:2375/v1.42/images/create?tag=test16&fromImage=my_etl: Not Found ("pull access denied for my_etl, repository does not exist or may require 'docker login': denied: requested access to the resource is denied"); 706)
+[2023-06-01T08:19:17.717+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-06-01T08:19:17.739+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
